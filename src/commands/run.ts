@@ -63,8 +63,6 @@ export async function runCommand(packageSpec: string, options: RunOptions) {
             timeout: 10000
           });
 
-          console.log('envSchemaResponse', envSchemaResponse.data.data)
-
           if (envSchemaResponse.status === 200 && envSchemaResponse.data.data) {
             console.log('✓ Environment schema retrieved');
             

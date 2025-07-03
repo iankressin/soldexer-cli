@@ -32,7 +32,6 @@ export class Uploader {
       formData.append('name', this.config.name);
       formData.append('version', this.config.version);
       formData.append('description', this.config.description);
-      console.log('this.config.envSchema', this.config.envSchema)
       formData.append('envSchema', JSON.stringify(this.config.envSchema));
       formData.append('file', fileStream, {
         filename: fileName,
