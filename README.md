@@ -45,6 +45,42 @@ soldexer publish --server https://my-server.com
 - `Dockerfile` in current directory
 - Docker installed and running
 
+### `soldexer list`
+
+List all available pipes and their versions from the server.
+
+```bash
+soldexer list
+soldexer list --server https://my-server.com
+```
+
+**Options:**
+- `-s, --server <url>` - Server URL (default: "http://localhost:3000")
+
+**What it does:**
+- Fetches all available pipes from the server
+- Displays pipe names, descriptions, and available versions
+- Shows versions sorted by creation date (newest first)
+- Provides a quick overview of all packages available for download
+
+**Example output:**
+```
+Found 2 pipes:
+
+swaps
+Indexer for Solana swaps. Supports Orca and Raydium
+versions:
+- 0.0.3
+- 0.0.1
+- 0.0.2
+
+ethereum-blocks
+Ethereum block indexer for ClickHouse
+versions:
+- 1.2.0
+- 1.1.0
+```
+
 ### `soldexer run <package>`
 
 Download and run a specific Soldexer package from the server.
@@ -123,6 +159,9 @@ soldexer publish --server https://pipes.soldexer.io
 ### Run an existing indexer
 
 ```bash
+# First, see what's available
+soldexer list --server https://pipes.soldexer.io
+
 # Run a published indexer
 soldexer run ethereum-blocks:1.2.0 --server https://pipes.soldexer.io
 

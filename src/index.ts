@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import { publishCommand } from './commands/publish';
 import { runCommand } from './commands/run';
 import { initCommand } from './commands/init';
+import { listCommand } from './commands/list';
 
 const program = new Command();
 
@@ -31,5 +32,11 @@ program
   .argument('<package>', 'Package name and version in format <n>:<version>')
   .option('-s, --server <url>', 'Server URL', 'http://localhost:3000')
   .action(runCommand);
+
+program
+  .command('list')
+  .description('List all available pipes with their versions')
+  .option('-s, --server <url>', 'Server URL', 'http://localhost:3000')
+  .action(listCommand);
 
 program.parse();
